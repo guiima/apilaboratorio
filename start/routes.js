@@ -19,3 +19,7 @@ Route.resource("reservas", "ReservaController").apiOnly();
 Route.resource("usuarios_recursos", "UsuarioRecursoController").apiOnly();
 
 Route.resource("consumos", "ConsumoController").apiOnly();
+
+Route.get("usuariosautorizados", "UsuarioController.autorizado");
+
+Route.get("usuariosnaoautorizados", "UsuarioController.naoAutorizado");

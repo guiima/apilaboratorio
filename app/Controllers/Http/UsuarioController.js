@@ -9,6 +9,22 @@ class UsuarioController {
     return data;
   }
 
+  async autorizado() {
+    const data = await Usuario.query()
+      .where("autorizado", true)
+      .fetch();
+
+    return data;
+  }
+
+  async naoAutorizado() {
+    const data = await Usuario.query()
+      .where("autorizado", false)
+      .fetch();
+
+    return data;
+  }
+
   async store({ request }) {
     const data = request.only([
       "nome",
