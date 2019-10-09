@@ -8,6 +8,7 @@ class VidrariaSchema extends Schema {
     this.create("vidrarias", table => {
       table.increments();
       table.string("nome").notNullable();
+      table.integer('quantidade').notNullable();
       table.timestamps();
     });
   }

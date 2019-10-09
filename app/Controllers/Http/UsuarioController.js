@@ -9,6 +9,18 @@ class UsuarioController {
     return data;
   }
 
+  async login({ request }) {
+    const { email, senha } = request.only(["email", "senha"]);
+
+    const data = await Usuario.findByOrFail("email", email);
+
+    if (data.senha === senha) {
+      return data;
+    } else {
+      return false;
+    }
+  }
+
   async autorizado() {
     const data = await Usuario.query()
       .where("autorizado", true)

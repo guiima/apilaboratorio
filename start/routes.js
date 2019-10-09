@@ -23,3 +23,5 @@ Route.resource("consumos", "ConsumoController").apiOnly();
 Route.get("usuariosautorizados", "UsuarioController.autorizado");
 
 Route.get("usuariosnaoautorizados", "UsuarioController.naoAutorizado");
+
+Route.get("usuarioslogin", "UsuarioController.login");
