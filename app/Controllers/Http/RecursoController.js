@@ -9,6 +9,22 @@ class RecursoController {
     return data;
   }
 
+  async meioCultivo() {
+    const data = await Recurso.query()
+      .where("tipo", "meio de cultivo")
+      .fetch();
+
+    return data;
+  }
+
+  async reagente() {
+    const data = await Recurso.query()
+      .where("tipo", "reagente")
+      .fetch();
+
+    return data;
+  }
+
   async store({ request }) {
     const data = request.only([
       "tipo",

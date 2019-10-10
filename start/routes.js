@@ -24,4 +24,8 @@ Route.get("usuariosautorizados", "UsuarioController.autorizado");
 
 Route.get("usuariosnaoautorizados", "UsuarioController.naoAutorizado");
 
-Route.get("usuarioslogin", "UsuarioController.login");
+Route.post("usuarioslogin", "UsuarioController.login");
+
+Route.get("recursoscultivo", "RecursoController.meioCultivo");
+
+Route.get("recursosreagente", "RecursoController.reagente");
