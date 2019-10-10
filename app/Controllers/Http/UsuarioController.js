@@ -9,7 +9,7 @@ class UsuarioController {
     return data;
   }
 
-  async login({ request }) {
+  async login({ request, response }) {
     const { email, senha } = request.only(["email", "senha"]);
 
     const data = await Usuario.findByOrFail("email", email);
@@ -17,7 +17,7 @@ class UsuarioController {
     if (data.senha === senha) {
       return data;
     } else {
-      return false;
+      return response.status(400);
     }
   }
 
