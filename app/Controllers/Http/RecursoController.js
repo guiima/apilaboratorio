@@ -30,6 +30,7 @@ class RecursoController {
       "tipo",
       "nomenclatura",
       "quantidade",
+      "qtd_minima",
       "numeracao"
     ]);
 
@@ -50,6 +51,7 @@ class RecursoController {
       "tipo",
       "nomenclatura",
       "quantidade",
+      "qtd_minima",
       "numeracao"
     ]);
 
