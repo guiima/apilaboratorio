@@ -45,6 +45,14 @@ class RecursoController {
     return data;
   }
 
+  async buscaNome({ request }) {
+    const { nomenclatura } = request.only(["nomenclatura"]);
+
+    const data = await Recurso.findByOrFail("nomenclatura", nomenclatura);
+
+    return data;
+  }
+
   async update({ params, request }) {
     const recurso = await Recurso.findOrFail(params.id);
     const data = request.only([

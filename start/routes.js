@@ -29,3 +29,5 @@ Route.post("usuarioslogin", "UsuarioController.login");
 Route.get("recursoscultivo", "RecursoController.meioCultivo");
 
 Route.get("recursosreagente", "RecursoController.reagente");
+
+Route.post("recursonome", "RecursoController.buscaNome");
