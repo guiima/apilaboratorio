@@ -8,7 +8,11 @@ class ReservaSchema extends Schema {
     this.create("reservas", table => {
       table.increments();
       table
-        .datetime("data")
+        .datetime("data_inicio")
+        .notNullable()
+        .unique();
+      table
+        .datetime("data_final")
         .notNullable()
         .unique();
       table

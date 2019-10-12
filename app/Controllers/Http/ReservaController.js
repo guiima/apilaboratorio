@@ -13,7 +13,12 @@ class ReservaController {
   }
 
   async store({ request }) {
-    const data = request.only(["data", "usuario_id", "equipamento_id"]);
+    const data = request.only([
+      "data_inicio",
+      "data_final",
+      "usuario_id",
+      "equipamento_id"
+    ]);
 
     const reserva = await Reserva.create(data);
 
@@ -32,7 +37,7 @@ class ReservaController {
 
   async update({ params, request }) {
     const reserva = await Reserva.findOrFail(params.id);
-    const data = request.only(["data"]);
+    const data = request.only(["data_inicio", "data_final"]);
 
     reserva.merge(data);
     await reserva.save();
