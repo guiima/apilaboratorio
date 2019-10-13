@@ -13,14 +13,34 @@ class ReservaController {
   }
 
   async store({ request }) {
-    const data = request.only([
-      "data_inicio",
-      "data_final",
-      "usuario_id",
-      "equipamento_id"
-    ]);
+    const data = request.only(["data", "hora", "usuario_id", "equipamento_id"]);
 
     const reserva = await Reserva.create(data);
+
+    return reserva;
+  }
+
+  async pesquisaData({ request }) {
+    const { data } = request.only(["data"]);
+
+    const reserva = await Reserva.query()
+      .with("usuario")
+      .with("equipamento")
+      .where("data", data)
+      .fetch();
+
+    return reserva;
+  }
+
+  async pesquisaDataHora({ request }) {
+    const { data, hora } = request.only(["data", "hora"]);
+
+    const reserva = await Reserva.query()
+      .with("usuario")
+      .with("equipamento")
+      .where("data", data)
+      .where("hora", hora)
+      .fetch();
 
     return reserva;
   }
@@ -37,7 +57,7 @@ class ReservaController {
 
   async update({ params, request }) {
     const reserva = await Reserva.findOrFail(params.id);
-    const data = request.only(["data_inicio", "data_final"]);
+    const data = request.only(["data", "hora"]);
 
     reserva.merge(data);
     await reserva.save();

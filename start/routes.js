@@ -31,3 +31,7 @@ Route.get("recursoscultivo", "RecursoController.meioCultivo");
 Route.get("recursosreagente", "RecursoController.reagente");
 
 Route.post("recursonome", "RecursoController.buscaNome");
+
+Route.post("reservadata", "ReservaController.pesquisaData");
+
+Route.post("reservadatahora", "ReservaController.pesquisaDataHora");
