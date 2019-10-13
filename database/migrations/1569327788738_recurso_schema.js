@@ -12,7 +12,7 @@ class RecursoSchema extends Schema {
       table.decimal("quantidade").notNullable();
       table.decimal("qtd_minima").notNullable();
       table
-        .integer("numeracao")
+        .string("numeracao")
         .unsigned()
         .notNullable()
         .unique();
