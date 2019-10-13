@@ -21,12 +21,13 @@ class ReservaController {
   }
 
   async pesquisaData({ request }) {
-    const { data } = request.only(["data"]);
+    const { data, equipamento_id } = request.only(["data", "equipamento_id"]);
 
     const reserva = await Reserva.query()
       .with("usuario")
       .with("equipamento")
       .where("data", data)
+      .where("equipamento_id", equipamento_id)
       .fetch();
 
     return reserva;
