@@ -10,7 +10,7 @@ class VidrariaController {
   }
 
   async store({ request }) {
-    const data = request.only(["nome"]);
+    const data = request.only(["nome", "quantidade"]);
 
     const vidraria = await Vidraria.create(data);
 
