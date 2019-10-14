@@ -18,9 +18,25 @@ class RegistroVidrariaController {
       "usuario_id"
     ]);
 
-    const registroRecurso = await RegistroVidraria.create(data);
+    const registroVidraria = await RegistroVidraria.create(data);
 
-    return registroRecurso;
+    return registroVidraria;
+  }
+
+  async buscaData({ request }) {
+    const { data_inicio, data_final } = request.only([
+      "data_inicio",
+      "data_final"
+    ]);
+
+    const registroVidraria = await RegistroVidraria.query()
+      .with("vidraria")
+      .with("usuario")
+      .where("data", ">=", data_inicio)
+      .where("data", "<=", data_final)
+      .fetch();
+
+    return registroVidraria;
   }
 }
 
