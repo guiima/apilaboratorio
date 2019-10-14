@@ -9,10 +9,7 @@ class UsuarioSchema extends Schema {
       table.increments();
       table.string("nome").notNullable();
       table.string("instituicao");
-      table
-        .integer("ra")
-        .notNullable()
-        .unique();
+      table.integer("ra").unique();
       table
         .string("email")
         .notNullable()
@@ -20,7 +17,7 @@ class UsuarioSchema extends Schema {
       table.string("senha").notNullable();
       table.string("curso");
       table.string("tipo").notNullable();
-      table.boolean('autorizado').notNullable();
+      table.boolean("autorizado").notNullable();
       table.timestamps();
     });
   }

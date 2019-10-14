@@ -7,6 +7,10 @@ class Vidraria extends Model {
   dano() {
     return this.hasOne("App/Models/Dano");
   }
+
+  registro() {
+    return this.hasMany("App/Models/Registro");
+  }
 }
 
 module.exports = Vidraria;

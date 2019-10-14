@@ -11,6 +11,10 @@ class Recurso extends Model {
   consumo() {
     return this.hasOne("App/Models/Consumo");
   }
+
+  registro() {
+    return this.hasMany("App/Models/Registro");
+  }
 }
 
 module.exports = Recurso;
