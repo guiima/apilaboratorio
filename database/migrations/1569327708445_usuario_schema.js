@@ -10,6 +10,7 @@ class UsuarioSchema extends Schema {
       table.string("nome").notNullable();
       table.string("instituicao");
       table.integer("ra").unique();
+      table.string('orientador')
       table
         .string("email")
         .notNullable()

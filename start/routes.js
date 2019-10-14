@@ -36,4 +36,6 @@ Route.post("reservadata", "ReservaController.pesquisaData");
 
 Route.post("reservadatahora", "ReservaController.pesquisaDataHora");
 
-Route.resource("registro", "RegistroController").apiOnly();
+Route.resource("registrorecurso", "RegistroRecursoController").apiOnly();
+
+Route.resource("registrovidraria", "RegistroVidrariaController").apiOnly();

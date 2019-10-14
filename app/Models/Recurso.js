@@ -12,8 +12,8 @@ class Recurso extends Model {
     return this.hasOne("App/Models/Consumo");
   }
 
-  registro() {
-    return this.hasMany("App/Models/Registro");
+  registro_recurso() {
+    return this.hasMany("App/Models/RegistroRecurso");
   }
 }
 

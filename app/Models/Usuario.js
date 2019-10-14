@@ -19,6 +19,14 @@ class Usuario extends Model {
   consumo() {
     return this.hasOne("App/Models/Consumo");
   }
+
+  registro_recurso() {
+    return this.hasMany("App/Models/RegistroRecurso");
+  }
+
+  registro_vidraria() {
+    return this.hasMany("App/Models/RegistroVidraria");
+  }
 }
 
 module.exports = Usuario;

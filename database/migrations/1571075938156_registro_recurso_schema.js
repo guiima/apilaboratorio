@@ -3,9 +3,9 @@
 /** @type {import('@adonisjs/lucid/src/Schema')} */
 const Schema = use("Schema");
 
-class RegistroSchema extends Schema {
+class RegistroRecursoSchema extends Schema {
   up() {
-    this.create("registros", table => {
+    this.create("registro_recursos", table => {
       table.increments();
       table.decimal("entrada");
       table.decimal("saida");
@@ -18,10 +18,10 @@ class RegistroSchema extends Schema {
         .onUpdate("cascade")
         .onDelete("cascade");
       table
-        .integer("vidraria_id")
-        .references("id")
-        .inTable("vidrarias")
+        .integer("usuario_id")
         .unsigned()
+        .references("id")
+        .inTable("usuarios")
         .onUpdate("cascade")
         .onDelete("cascade");
       table.timestamps();
@@ -29,8 +29,8 @@ class RegistroSchema extends Schema {
   }
 
   down() {
-    this.drop("registros");
+    this.drop("registro_recursos");
   }
 }
 
-module.exports = RegistroSchema;
+module.exports = RegistroRecursoSchema;

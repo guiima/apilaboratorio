@@ -8,8 +8,8 @@ class Vidraria extends Model {
     return this.hasOne("App/Models/Dano");
   }
 
-  registro() {
-    return this.hasMany("App/Models/Registro");
+  registro_vidraria() {
+    return this.hasMany("App/Models/RegistroVidraria");
   }
 }
 
