@@ -4,7 +4,11 @@ const RegistroVidraria = use("App/Models/RegistroVidraria");
 
 class RegistroVidrariaController {
   async index() {
-    const data = await RegistroVidraria.all();
+    const data = await RegistroVidraria.query()
+      .with("vidraria")
+      .with("usuario")
+      .orderBy("entrada", "desc")
+      .fetch();
 
     return data;
   }
