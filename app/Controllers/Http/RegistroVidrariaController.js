@@ -7,7 +7,7 @@ class RegistroVidrariaController {
     const data = await RegistroVidraria.query()
       .with("vidraria")
       .with("usuario")
-      .orderBy("entrada", "desc")
+      .orderBy("id", "desc")
       .fetch();
 
     return data;
@@ -41,6 +41,30 @@ class RegistroVidrariaController {
       .fetch();
 
     return registroVidraria;
+  }
+
+  async somaEntrada({ request }) {
+    const { data_inicio, data_final } = request.only([
+      "data_inicio",
+      "data_final"
+    ]);
+    const soma = await RegistroVidraria.query()
+      .whereBetween("data", [data_inicio, data_final])
+      .sum("entrada");
+
+    return soma;
+  }
+
+  async somaSaida({ request }) {
+    const { data_inicio, data_final } = request.only([
+      "data_inicio",
+      "data_final"
+    ]);
+    const soma = await RegistroVidraria.query()
+      .whereBetween("data", [data_inicio, data_final])
+      .sum("saida");
+
+    return soma;
   }
 }
 

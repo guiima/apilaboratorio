@@ -41,3 +41,10 @@ Route.resource("registrorecurso", "RegistroRecursoController").apiOnly();
 Route.resource("registrovidraria", "RegistroVidrariaController").apiOnly();
 
 Route.post("registrovidrariadata", "RegistroVidrariaController.buscaData");
+
+Route.post(
+  "registrovidrariasomaentrada",
+  "RegistroVidrariaController.somaEntrada"
+);
+
+Route.post("registrovidrariasomasaida", "RegistroVidrariaController.somaSaida");
