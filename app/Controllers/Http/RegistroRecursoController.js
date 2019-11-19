@@ -4,9 +4,31 @@ const RegistroRecurso = use("App/Models/RegistroRecurso");
 
 class RegistroRecursoController {
   async index() {
-    const data = await RegistroRecurso.all();
+    const data = await RegistroRecurso.query()
+      .with("recurso")
+      .with("usuario")
+      .fetch();
 
     return data;
+  }
+
+  async buscaData({ request }) {
+    const { data_inicio, data_final, tipo } = request.only([
+      "data_inicio",
+      "data_final",
+      "tipo"
+    ]);
+
+    const registroRecurso = await RegistroRecurso.query()
+      .with("recurso", recurso => {
+        recurso.where("tipo", tipo);
+      })
+      .with("recurso")
+      .with("usuario")
+      .whereBetween("data", [data_inicio, data_final])
+      .fetch();
+
+    return registroRecurso;
   }
 
   async store({ request }) {

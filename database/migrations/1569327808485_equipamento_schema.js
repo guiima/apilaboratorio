@@ -8,6 +8,7 @@ class EquipamentoSchema extends Schema {
     this.create("equipamentos", table => {
       table.increments();
       table.string("nome").notNullable();
+      table.boolean("disponivel").notNullable();
       table.timestamps();
     });
   }

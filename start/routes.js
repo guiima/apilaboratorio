@@ -48,3 +48,5 @@ Route.post(
 );
 
 Route.post("registrovidrariasomasaida", "RegistroVidrariaController.somaSaida");
+
+Route.post("registrorecursodatatipo", "RegistroRecursoController.buscaData");

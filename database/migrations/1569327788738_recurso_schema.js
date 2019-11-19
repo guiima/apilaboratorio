@@ -8,14 +8,16 @@ class RecursoSchema extends Schema {
     this.create("recursos", table => {
       table.increments();
       table.string("tipo").notNullable();
-      table.string("nomenclatura").notNullable().unique();
+      table
+        .string("nomenclatura")
+        .notNullable()
+        .unique();
       table.decimal("quantidade").notNullable();
       table.decimal("qtd_minima").notNullable();
       table
         .string("numeracao")
         .unsigned()
-        .notNullable()
-        .unique();
+        .notNullable();
       table.timestamps();
     });
   }
