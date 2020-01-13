@@ -25,7 +25,7 @@ class VidrariaController {
 
   async update({ params, request }) {
     const vidraria = await Vidraria.findOrFail(params.id);
-    const data = request.only("nome");
+    const data = request.only(["nome", "quantidade"]);
 
     vidraria.merge(data);
     await vidraria.save();
