@@ -10,7 +10,7 @@ class EquipamentoController {
   }
 
   async store({ request }) {
-    const data = request.only(["nome"]);
+    const data = request.only(["nome", "disponivel"]);
 
     const equipamento = await Equipamento.create(data);
 
