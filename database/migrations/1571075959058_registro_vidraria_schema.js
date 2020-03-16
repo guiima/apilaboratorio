@@ -7,8 +7,8 @@ class RegistroVidrariaSchema extends Schema {
   up() {
     this.create("registro_vidrarias", table => {
       table.increments();
-      table.decimal("entrada");
-      table.decimal("saida");
+      table.integer("entrada");
+      table.integer("saida");
       table.date("data").notNullable();
       table
         .integer("vidraria_id")
