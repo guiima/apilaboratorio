@@ -14,9 +14,7 @@ class ReservaController {
 
   async store({ request }) {
     const data = request.only(["data", "hora", "usuario_id", "equipamento_id"]);
-
     const reserva = await Reserva.create(data);
-
     return reserva;
   }
 
