@@ -4,6 +4,14 @@ const Equipamento = use("App/Models/Equipamento");
 
 class EquipamentoController {
   async index() {
+    const data = await Equipamento.query()
+      .where("disponivel", true)
+      .fetch();
+
+    return data;
+  }
+
+  async allEquip() {
     const data = await Equipamento.all();
 
     return data;
@@ -25,7 +33,7 @@ class EquipamentoController {
 
   async update({ params, request }) {
     const equipamento = await Equipamento.findOrFail(params.id);
-    const data = request.only("nome");
+    const data = request.only(["nome", "disponivel"]);
 
     equipamento.merge(data);
     await equipamento.save();
